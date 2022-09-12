@@ -25,7 +25,7 @@ export class TarefaController{
     @HttpCode(HttpStatus.OK)//Retorna um status se der certo o Get ele retorna Ok
     findByNome(@Param('nome')nome: string): Promise<Tarefa[]>{
         return this.service.findByNome(nome)
-    }
+    } 
 
     @Post()//Post Salva no DB
     @HttpCode(HttpStatus.CREATED)

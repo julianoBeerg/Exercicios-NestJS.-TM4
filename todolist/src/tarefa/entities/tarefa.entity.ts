@@ -1,5 +1,6 @@
 import { IsNotEmpty, MaxLength } from "class-validator";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Categoria } from "src/categoria/entities/categoria.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name: 'tb_tarefa'})//Criando tabela tb_tarefa e diz que a classe que vir depois será a tb tarefa
 export class Tarefa{//Criando uma classe
@@ -28,4 +29,8 @@ export class Tarefa{//Criando uma classe
 
     @Column()//Não precisa parametros, pois é sempre true ou false
     status: boolean
+
+    @ManyToOne(() => Categoria, (Categoria ) => Categoria.tarefas, {
+            onDelete: "CASCADE"})//Declara que se uma categoria é excluida todas as tarefas pertencentes tambem são
+    categoria: Categoria
 }

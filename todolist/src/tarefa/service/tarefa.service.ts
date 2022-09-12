@@ -13,13 +13,20 @@ export class TarefaService{
     ){}
 
     async findAll(): Promise<Tarefa[]>{//Função Assincrona que retorna uma promisse que recupera um array/Lista[] de Tarefa
-        return this.tarefaRepository.find()//retorna o tarefa repository que o constructor pegou
+        return this.tarefaRepository.find({
+            relations: {//relaciona essa categoria com o atributo de tarefas
+                categoria: true
+            }
+        })//retorna o tarefa repository que o constructor pegou
     }
 
     async findById(id: number): Promise<Tarefa>{//Retorna uma promisse unica
         let tarefa = await this.tarefaRepository.findOne({//Encontra um  na tarefa repository
             where: {
                 id//onde o Id seja esse
+            },
+            relations: {//relaciona essa categoria com o atributo de tarefas
+                categoria: true
             }
         })
 
@@ -33,6 +40,9 @@ export class TarefaService{
         return this.tarefaRepository.find({
             where:{
             nome: ILike(`%${nome}%`)//Retorna um nome. O iLike pesquisa independente da formatação ou apenas algumas letras
+            },
+            relations: {//relaciona essa categoria com o atributo de tarefas
+                categoria: true
             }
         })
     }

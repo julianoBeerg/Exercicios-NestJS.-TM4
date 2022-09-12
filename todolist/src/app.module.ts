@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Categoria } from './categoria/entities/categoria.entity';
+import { CategoriaModule } from './categoria/modules/categoria.module';
 import { Tarefa } from './tarefa/entities/tarefa.entity';
 import { TarefaModule } from './tarefa/modules/tarefa.module';
 
@@ -12,11 +14,12 @@ import { TarefaModule } from './tarefa/modules/tarefa.module';
       username: 'root', //Definindo o username do mysql
       password: 'Juliano', //Senha padrão DB
       database: 'db_todo', //Nome da tabela que criamos
-      entities: [Tarefa], //Criando o TB tarefa
+      entities: [Tarefa, Categoria], //Criando o TB tarefa
       synchronize: true //Sincroniza todos os dados e alterações no DB
       //Com essas informações é possivel se conectar com o BD
     }),
-    TarefaModule
+    TarefaModule,
+    CategoriaModule
   ],
   controllers: [],
   providers: [],
