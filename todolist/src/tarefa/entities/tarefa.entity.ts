@@ -1,6 +1,8 @@
 import { IsNotEmpty, MaxLength } from "class-validator";
-import { Categoria } from "src/categoria/entities/categoria.entity";
+
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+
+import { Categoria } from "../../categoria/entities/categoria.entity";
 
 @Entity({name: 'tb_tarefa'})//Criando tabela tb_tarefa e diz que a classe que vir depois será a tb tarefa
 export class Tarefa{//Criando uma classe

@@ -21,7 +21,7 @@ export class Produto {
     descricao: string
     
     @IsNotEmpty()
-    @Column({nullable: false})
+    @Column({type: "decimal", precision: 10, scale: 2})
     quantidade: number
 
 
@@ -31,7 +31,7 @@ export class Produto {
     laboratorio:string
 
     @IsNotEmpty()
-    @Column({nullable: false})
+    @Column({type: "decimal", precision: 10, scale: 2})
     preco: number
 
     

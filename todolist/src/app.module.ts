@@ -5,6 +5,7 @@ import { CategoriaModule } from './categoria/modules/categoria.module';
 import { Tarefa } from './tarefa/entities/tarefa.entity';
 import { TarefaModule } from './tarefa/modules/tarefa.module';
 
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({//Vai ter o que é necessario pra se conectar com o DB

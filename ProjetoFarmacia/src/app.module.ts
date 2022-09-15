@@ -15,7 +15,7 @@ import { ProdutoModule } from './produtos/modules/produto.module';
       host: 'localhost', //Definindo que o host é o localhost
       port: 3306, //Definindo a posta do local host (Porta padrão)
       username: 'root', //Definindo o username do mysql
-      password: 'root', //Senha padrão DB
+      password: 'Juliano', //Senha padrão DB
       database: 'db_farmacia', //Nome da tabela que criamos
       entities: [Produto, Categoria], //Criando o TB tarefa
       synchronize: true //Sincroniza todos os dados e alterações no DB
